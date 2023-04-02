@@ -1,0 +1,131 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Todos
+</button>
+
+<!-- Add Todo Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add todo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="subject" class="form-label">Todo Title</label>
+            <input type="text" class="form-control" formControlName="subject" id="subject" name="subject">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Todo Description</label>
+            <input type="text" class="form-control" formControlName="description" id="description" name="description">
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label">Todo Status</label>
+            <input type="text" class="form-control" formControlName="status" id="status" name="status">
+          </div>
+          <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="addTodo()">Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todoList">
+        <td>{{todo.subject}}</td>
+        <td>{{todo.description}}</td>
+        <td>{{todo.status}}</td>
+        <td>
+          <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editTodo"
+            (click)="editTodo(todo)">Edit</button>
+          <button type="button" class="btn btn-outline-danger">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- Edit Todo Modal below -->
+<div class="modal fade" id="editTodo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit todo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form [formGroup]="formValue">
+          <input type="hidden" class="form-control" formControlName="_id" id="_id" name="subject">
+          <div class="mb-3">
+            <label for="subject" class="form-label">Todo Title</label>
+            <input type="text" class="form-control" formControlName="subject" id="subject" name="subject">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Todo Description</label>
+            <input type="text" class="form-control" formControlName="description" id="description" name="description">
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label">Todo Status</label>
+            <input type="text" class="form-control" formControlName="status" id="status" name="status">
+          </div>
+          <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTodo"
+            (click)="updateTodo()">Update</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Todo Modal below -->
+<div class="modal fade" id="editTodo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit todo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form [formGroup]="formValue">
+          <input type="hidden" class="form-control" formControlName="_id" id="_id" name="subject">
+          <div class="mb-3">
+            <label for="subject" class="form-label">Todo Title</label>
+            <input type="text" class="form-control" formControlName="subject" id="subject" name="subject">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Todo Description</label>
+            <input type="text" class="form-control" formControlName="description" id="description" name="description">
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label">Todo Status</label>
+            <input type="text" class="form-control" formControlName="status" id="status" name="status">
+          </div>
+          <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTodo"
+            (click)="updateTodo()">Update</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
