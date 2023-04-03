@@ -77,4 +77,20 @@ export class TodoComponent implements OnInit {
       }
     );
   }
+
+  deleteTodo() {
+    this.todoObj._id = this.formValue.value._id;
+    this.todoObj.subject = this.formValue.value.subject;
+    this.todoObj.description = this.formValue.value.description;
+    this.todoObj.status = this.formValue.value.status;
+
+    this.todoService.deleteTodo(this.todoObj._id).subscribe(
+      (res) => {
+        this.getAllTodo();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 }

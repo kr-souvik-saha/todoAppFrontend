@@ -40,4 +40,8 @@ export class TodoService {
       this.httpOptions
     );
   }
+
+  deleteTodo(id: string): Observable<Todo> {
+    return this.http.delete<Todo>(`${this.addTodoURL}/${id}`, this.httpOptions);
+  }
 }

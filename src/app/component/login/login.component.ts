@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Login } from 'src/app/model/login';
 import { LoginService } from 'src/app/service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.loginService.loginUser(this.loginObj).subscribe(
       (res) => {
         localStorage.setItem('token', res.accessToken);
-        console.log(localStorage.getItem('token'));
+        this.router.navigate(['/todo']);
       },
       (err) => {
         console.log(err);

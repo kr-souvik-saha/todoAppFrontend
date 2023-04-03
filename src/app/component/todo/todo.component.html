@@ -54,7 +54,8 @@
         <td>
           <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editTodo"
             (click)="editTodo(todo)">Edit</button>
-          <button type="button" class="btn btn-outline-danger">Delete</button>
+          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteTodo"
+            (click)="editTodo(todo)">Delete</button>
         </td>
       </tr>
 
@@ -97,11 +98,11 @@
 </div>
 
 <!-- Edit Todo Modal below -->
-<div class="modal fade" id="editTodo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteTodo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit todo</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete todo</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -121,8 +122,8 @@
             <label for="status" class="form-label">Todo Status</label>
             <input type="text" class="form-control" formControlName="status" id="status" name="status">
           </div>
-          <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTodo"
-            (click)="updateTodo()">Update</button>
+          <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteTodo"
+            (click)="deleteTodo()">Delete</button>
         </form>
 
       </div>
